@@ -1,0 +1,23 @@
+- name: Apt update and upgrade
+  register: apt_update_upgrade
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: yes
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug apt_update_upgrade
+  ansible.builtin.debug:
+    msg: "{{ apt_update_upgrade }}"
+
+- name: Install linux packages
+  register: install_linux_packages
+  ansible.builtin.apt:
+    pkg:
+      - curl
+      - git
+      - ansible
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_linux_packages
+  ansible.builtin.debug:
+    msg: "{{ install_linux_packages }}"

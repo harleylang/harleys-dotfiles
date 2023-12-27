@@ -1,10 +1,11 @@
 ---
 - import_tasks: clone.yaml
-- import_tasks: bashrc.yaml
-- import_tasks: bash_harley.yaml
-- import_tasks: source.yaml
-#- import_tasks: dependencies.yaml
-#- import_tasks: git.yaml
+- import_tasks: dependencies.yaml
+- import_tasks: bash.yaml
+- import_tasks: audio.yaml
+- import_tasks: git.yaml
 #- import_tasks: i3.yaml
+- import_tasks: image.yaml
 #- import_tasks: ranger.yaml
-- import_tasks: vimrc.yaml
+- import_tasks: vim.yaml
+- import_tasks: wine.yaml

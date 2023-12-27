@@ -1,0 +1,13 @@
+- name: Install image processing packages
+  register: install_image_processing_packages
+  ansible.builtin.apt:
+    pkg:
+      # feh - image viewer
+      - feh
+      # flameshot - screenshot tool
+      - flameshot
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_image_processing_packages
+  ansible.builtin.debug:
+    msg: "{{ install_image_processing_packages }}"

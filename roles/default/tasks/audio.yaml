@@ -1,0 +1,11 @@
+- name: Install audio processing packages
+  register: install_audio_processing_packages
+  ansible.builtin.apt:
+    pkg:
+      # pavucontrol - audio channel / volume gui
+      - pavucontrol
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_audio_processing_packages
+  ansible.builtin.debug:
+    msg: "{{ install_audio_processing_packages }}"

@@ -1,8 +1,0 @@
-- name: Source .bashrc
-  register: source_bashrc
-  shell: source ~/.bashrc
-  args:
-    executable: /bin/bash
-- name: Debug source_bashrc
-  ansible.builtin.debug:
-    msg: "{{ source_bashrc }}"

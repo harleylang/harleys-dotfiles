@@ -1,10 +1,22 @@
+- name: Install vim packages
+  register: install_vim_packages
+  ansible.builtin.apt:
+    pkg:
+      # vim - text editor
+      - vim
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_vim_packages
+  ansible.builtin.debug:
+    msg: "{{ install_vim_packages }}"
+
 - name: Update .vimrc
   register: update_vimrc
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.vimrc"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.vimrc') }}"
     marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .vimrc'
-    insertbefore: BOF
+    insertbefore: EOF
     create: yes
 - name: Debug update_vimrc
   ansible.builtin.debug:

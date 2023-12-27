@@ -1,0 +1,22 @@
+- name: Install git packages
+  register: install_git_packages
+  ansible.builtin.apt:
+    pkg:
+      - git
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_git_packages
+  ansible.builtin.debug:
+    msg: "{{ install_git_packages }}"
+
+- name: Update .gitconfig
+  register: update_bashrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.gitconfig') }}"
+    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .gitconfig"
+    insertbefore: EOF
+    create: yes
+- name: Debug update_gitconfig
+  ansible.builtin.debug:
+    msg: "{{ update_gitconfig }}"

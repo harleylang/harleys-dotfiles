@@ -1,0 +1,11 @@
+- name: Install wine packages
+  register: install_wine_packages
+  ansible.builtin.apt:
+    pkg:
+      # wine - for run windows applications
+      - wine
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_wine_packages
+  ansible.builtin.debug:
+    msg: "{{ install_wine_packages }}"
