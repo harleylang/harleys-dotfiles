@@ -6,7 +6,7 @@
       - ranger
   when:
     - ansible_distribution|string == 'Debian'
-- name: Debug install_vim_packages
+- name: Debug install_ranger_packages
   ansible.builtin.debug:
     msg: "{{ install_ranger_packages }}"
 

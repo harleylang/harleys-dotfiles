@@ -1,0 +1,40 @@
+- name: Install i3 packages
+  register: install_i3_packages
+  ansible.builtin.apt:
+    pkg:
+      - i3
+      - i3status
+      - dmenu
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_i3_packages
+  ansible.builtin.debug:
+    msg: "{{ install_i3_packages }}"
+
+- name: Update i3 config
+  register: update_i3_config
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.config/i3/config"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/i3.custom.conf') }}"
+    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3 config'
+    insertbefore: EOF
+    create: yes
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug update_i3_config
+  ansible.builtin.debug:
+    msg: "{{ update_i3_config }}"
+
+- name: Update i3 status config
+  register: update_i3_status_config
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.i3status.conf"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/i3.status.conf') }}"
+    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3status config'
+    insertbefore: EOF
+    create: yes
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug update_i3_status_config
+  ansible.builtin.debug:
+    msg: "{{ update_i3_status_config }}"
