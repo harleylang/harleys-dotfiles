@@ -1,0 +1,4 @@
+- name: .harleys-dotfiles playbook - default config
+  hosts: myhosts
+  roles:
+    - default

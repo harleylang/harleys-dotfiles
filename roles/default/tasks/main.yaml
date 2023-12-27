@@ -1,0 +1,9 @@
+---
+- import_tasks: clone.yaml
+- import_tasks: bashrc.yaml
+- import_tasks: bash_harley.yaml
+- import_tasks: source.yaml
+#- import_tasks: dependencies.yaml
+#- import_tasks: git.yaml
+#- import_tasks: i3.yaml
+#- import_tasks: ranger.yaml

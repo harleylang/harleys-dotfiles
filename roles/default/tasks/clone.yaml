@@ -1,0 +1,8 @@
+- name: Clone and update harleys-dotfiles repository
+  register: repo_info
+  ansible.builtin.git:
+    repo: https://github.com/harleylang/harleys-dotfiles
+    dest: ~/.harleys-dotfiles
+- name: Debug repo_info
+  ansible.builtin.debug:
+    msg: "{{ repo_info }}"

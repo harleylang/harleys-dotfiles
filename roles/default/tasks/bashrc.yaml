@@ -1,0 +1,11 @@
+- name: Update .bashrc
+  register: update_bashrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/bashrc.sh') }}"
+    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .bashrc"
+    insertbefore: BOF
+    create: yes
+- name: Debug update_bashrc
+  ansible.builtin.debug:
+    msg: "{{ update_bashrc }}"

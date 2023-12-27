@@ -1,0 +1,14 @@
+---
+- name: .harleys-dotfiles playbook - setup vars from args
+  hosts: all, localhost
+  gather_facts: no
+  run_once: True
+  tasks:
+    - set_fact: aconditional=true
+      when: aconditional is defined
+      delegate_to: localhost
+      delegate_facts: yes
+
+- import_playbook: playbook.default.yaml
+#- import_playbook: playbook.aconditional.yaml
+#  when: hostvars.localhost.aconditional is defined
