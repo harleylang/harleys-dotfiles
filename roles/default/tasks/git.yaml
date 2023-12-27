@@ -10,7 +10,7 @@
     msg: "{{ install_git_packages }}"
 
 - name: Update .gitconfig
-  register: update_bashrc
+  register: update_gitconfig
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.gitconfig') }}"
