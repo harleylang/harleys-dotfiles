@@ -4,7 +4,7 @@
 
 ## important stuff
 
-- To install run `wget -O - https://raw.githubusercontent.com/harleylang/harleys-dotfiles/main/setup.sh | bash`
+- To install run `wget -O - https://raw.githubusercontent.com/harleylang/harleys-dotfiles/main/bootstrap.sh | bash`
 
 - To sync with stream configurations, run `harleys-dotfiles-update`
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 ############################################################
 #
-# setup.sh
+# bootstrap.sh
 #
-# .harleys-dotfiles Setup Script 
+# .harleys-dotfiles Bootstrap / Installation Script 
 #
 ############################################################
 
