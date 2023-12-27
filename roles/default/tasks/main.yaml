@@ -6,6 +6,6 @@
 - import_tasks: git.yaml
 #- import_tasks: i3.yaml
 - import_tasks: image.yaml
-#- import_tasks: ranger.yaml
+- import_tasks: ranger.yaml
 - import_tasks: vim.yaml
 - import_tasks: wine.yaml
