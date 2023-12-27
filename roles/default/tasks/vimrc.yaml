@@ -1,0 +1,11 @@
+- name: Update .vimrc
+  register: update_vimrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.vimrc') }}"
+    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .vimrc'
+    insertbefore: BOF
+    create: yes
+- name: Debug update_vimrc
+  ansible.builtin.debug:
+    msg: "{{ update_vimrc }}"

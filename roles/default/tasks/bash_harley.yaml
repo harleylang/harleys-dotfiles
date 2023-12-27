@@ -2,7 +2,7 @@
   register: update_bash_harley
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.bash_harley"
-    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/bash_harley.sh') }}"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.bash_harley') }}"
     marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .bash_harley"
     insertafter: EOF
     create: yes
@@ -13,7 +13,7 @@
 #  register: update_bash_profile_debian
 #  blockinfile:
 #    dest: "{{ ansible_env.HOME }}/.bash_harley"
-#    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/bash_harley.debian.sh') }}"
+#    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/.bash_harley.debian') }}"
 #    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .bash_harley for Debian"
 #    insertafter: EOF
 #    create: yes

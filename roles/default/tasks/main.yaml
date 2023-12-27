@@ -7,3 +7,4 @@
 #- import_tasks: git.yaml
 #- import_tasks: i3.yaml
 #- import_tasks: ranger.yaml
+- import_tasks: vimrc.yaml
