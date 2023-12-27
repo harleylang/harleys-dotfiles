@@ -1,5 +1,6 @@
 - name: Apt update and upgrade
   register: apt_update_upgrade
+  become: yes
   ansible.builtin.apt:
     update_cache: yes
     upgrade: yes
