@@ -1,14 +1,14 @@
 - name: Update .bash_harley
-  register: update_bash_profile
+  register: update_bash_harley
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.bash_harley"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/bash_harley.sh') }}"
     marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update .bash_harley"
     insertafter: EOF
     create: yes
-- name: Debug update_bash_profile
+- name: Debug update_bash_harley
   ansible.builtin.debug:
-    msg: "{{ update_bash_profile }}"
+    msg: "{{ update_bash_harley }}"
 #- name: Update .bash_harley for Debian
 #  register: update_bash_profile_debian
 #  blockinfile:
