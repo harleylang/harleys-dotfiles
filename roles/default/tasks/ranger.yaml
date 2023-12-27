@@ -15,7 +15,7 @@
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.config/ranger/ranger.conf"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/ranger.conf') }}"
-    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update ranger.conf'
+    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update ranger.conf"
     insertbefore: EOF
     create: yes
 - name: Debug update_ranger_conf

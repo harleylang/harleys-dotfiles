@@ -16,7 +16,7 @@
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.config/i3/config"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/i3.custom.conf') }}"
-    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3 config'
+    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3 config"
     insertbefore: EOF
     create: yes
   when:
@@ -30,7 +30,7 @@
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.i3status.conf"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/i3.status.conf') }}"
-    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3status config'
+    marker: "# {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update i3status config"
     insertbefore: EOF
     create: yes
   when:
