@@ -11,7 +11,7 @@
     msg: "{{ install_ranger_packages }}"
 
 - name: Update ranger.conf
-  register: update_vimrc
+  register: update_ranger.conf
   blockinfile:
     dest: "{{ ansible_env.HOME }}/.config/ranger/ranger.conf"
     block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/ranger.conf') }}"
