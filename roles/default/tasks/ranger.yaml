@@ -1,0 +1,23 @@
+- name: Install ranger packages
+  register: install_ranger_packages
+  ansible.builtin.apt:
+    pkg:
+      # ranger - terminal file explorer
+      - ranger
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug install_vim_packages
+  ansible.builtin.debug:
+    msg: "{{ install_ranger_packages }}"
+
+- name: Update ranger.conf
+  register: update_vimrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.config/ranger/ranger.conf"
+    block: "{{ lookup('file', '{{ playbook_dir }}/roles/default/files/ranger.conf') }}"
+    marker: '" {mark} HARLEYS-DOTFILES MANAGED BLOCK - Update ranger.conf'
+    insertbefore: EOF
+    create: yes
+- name: Debug update_ranger.conf
+  ansible.builtin.debug:
+    msg: "{{ update_ranger.conf }}"
