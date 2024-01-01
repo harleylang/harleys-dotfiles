@@ -11,6 +11,15 @@
   ansible.builtin.debug:
     msg: "{{ install_i3_packages }}"
 
+- name: Initialise i3 config
+  register: initialise_i3_packages
+  shell: i3-config-wizard -m win
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug initialise_i3_packages
+  ansible.builtin.debug:
+    msg: "{{ initialise_i3_packages }}"
+
 - name: Update i3 config
   register: update_i3_config
   blockinfile:
