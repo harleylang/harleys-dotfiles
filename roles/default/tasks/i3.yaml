@@ -59,3 +59,12 @@
 - name: Debug update_i3_status_config
   ansible.builtin.debug:
     msg: "{{ update_i3_status_config }}"
+
+- name: Restart i3
+  register: restart_i3
+  shell: i3-msg restart
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug restart_i3
+  ansible.builtin.debug:
+    msg: "{{ restart_i3 }}"
