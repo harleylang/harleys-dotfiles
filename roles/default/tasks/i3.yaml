@@ -6,7 +6,8 @@
       - i3
       - i3status
       - dmenu
-      - xclip
+      - xsel
+      - xdotool
   when:
     - ansible_distribution|string == 'Debian'
 - name: Debug install_i3_packages
