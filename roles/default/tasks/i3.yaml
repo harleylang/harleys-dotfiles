@@ -34,6 +34,18 @@
   ansible.builtin.debug:
     msg: "{{ remove_i3_config_bar }}"
 
+- name: Update vertical orientation to mod+b
+  register: remove_i3_config_verticle
+  ansible.builtin.replace:
+    path: "{{ ansible_env.HOME }}/.config/i3/config"
+    regexp: "bindsym $mod+v split v"
+    replace: "bindsym $mod+b slit v"
+  when:
+    - ansible_distribution|string == 'Debian'
+- name: Debug remove_i3_config_verticle
+  ansible.builtin.debug:
+    msg: "{{ remove_i3_config_verticle }}"
+
 - name: Update i3 config
   register: update_i3_config
   blockinfile:
