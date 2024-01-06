@@ -6,7 +6,7 @@
       - i3
       - i3status
       - dmenu
-      - wl-clipboard
+      - xclip
   when:
     - ansible_distribution|string == 'Debian'
 - name: Debug install_i3_packages
