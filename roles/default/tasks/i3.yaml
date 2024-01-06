@@ -38,8 +38,8 @@
   register: remove_i3_config_verticle
   ansible.builtin.replace:
     path: "{{ ansible_env.HOME }}/.config/i3/config"
-    regexp: "bindsym $mod+v split v"
-    replace: "bindsym $mod+b slit v"
+    regexp: "bindsym \$mod\+v split v"
+    replace: "bindsym $mod+b split v"
   when:
     - ansible_distribution|string == 'Debian'
 - name: Debug remove_i3_config_verticle
